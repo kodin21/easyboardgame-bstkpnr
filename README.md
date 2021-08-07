@@ -1,7 +1,6 @@
 ### Live Demo
 https://inspiring-hopper-a028ff.netlify.app/
 
-
 ## HAFTA 4 - ÖDEV
 
 # React mix example
