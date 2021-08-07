@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../Char/Char.css";
 import KeyPress from "../hooks/keyPress";
-import LocalStorage from "../hooks/localStorage";
 
 const keySetting={
   SPACE_KEY:32
@@ -24,11 +23,19 @@ function Char() {
   ]);
   
   let speed=20;
-  const [vertical, setVertical] = useState(0);
-  const [horizontal, setHorizontal] = useState(0);
+  const [vertical, setVertical] = useState(()=>{
+    const localData=localStorage.getItem('position');
+    return localData ? JSON.parse(localData).vertical:0;
+  });
+  const [horizontal, setHorizontal] = useState(()=>{
+    const localData=localStorage.getItem('position');
+    return localData ? JSON.parse(localData).horizontal:0;
+  });
+  useEffect(()=>{
+    localStorage.setItem("position",JSON.stringify({vertical,horizontal}));
+  },[vertical,horizontal]);
 
   const handleKey = (key) => {
-    let arrowUp = 0;
     console.log(key);
     if (key === "ArrowUp") {
       setVertical((arrowUp) => arrowUp - speed);
@@ -55,7 +62,6 @@ function Char() {
         setHorizontal(420);
       }
     }
-
     if(key.keyCode===keySetting.SPACE_KEY){
       setVertical((arrowUp) => arrowUp - speed);
       if (vertical < 1) {
@@ -68,8 +74,6 @@ function Char() {
 
     // }
   }
-
-
   useEffect(() => {
 
     if (keyPress) {
@@ -99,6 +103,8 @@ function Char() {
       <p
         id={char === "Beste" ? "char1" : "char2"}
         onKeyPress={handleKey}
+        vertical={vertical}
+        horizontal={horizontal}
         value={{setChar}}
         style={{ top: `${vertical}px`, left: `${horizontal}px` }}
       >
