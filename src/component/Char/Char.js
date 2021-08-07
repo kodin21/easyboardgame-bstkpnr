@@ -92,7 +92,7 @@ function Char() {
 
   return (
     <div className="App">
-      <select name="option" onChange={handleChange}>
+      <select name="option" onChange={handleChange} style={{color:'salmon'}}>
         <option value="Beste" id="char1">
           Char1
         </option>
