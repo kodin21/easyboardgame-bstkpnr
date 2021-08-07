@@ -1,0 +1,44 @@
+#board {
+    width: 500px;
+    height: 500px;
+    border:10px solid salmon;
+    position: relative;
+    background-color:white;
+    box-shadow: 20px 20px rgba(177, 141, 187, 0.3);
+    transition: all .4s ease;
+    margin: 25px auto;
+    overflow: hidden;
+    animation: rotate 1.5s linear infinite;
+
+    border-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='100' height='100' viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E %3ClinearGradient id='g' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23cffffe' /%3E%3Cstop offset='25%25' stop-color='%23f9f7d9' /%3E%3Cstop offset='50%25' stop-color='%23fce2ce' /%3E%3Cstop offset='100%25' stop-color='%23ffc1f3' /%3E%3C/linearGradient%3E %3Cpath d='M1.5 1.5 l97 0l0 97l-97 0 l0 -97' stroke-linecap='square' stroke='url(%23g)' stroke-width='3'/%3E %3C/svg%3E") 1;
+
+    background: linear-gradient(to top, rgba(#cffffe, 0.3), rgba(#8b8305, 0.3), rgba(#ac652f, 0.3), rgba(#9c1d83, 0.3));
+   
+  }
+  #backbtn{
+    width: 150px;
+	height: 50px;
+	cursor: pointer;
+	font-size: 20px;
+	font-weight: bold;
+	color: black;
+	background: white;
+	border: 2px solid black;
+	box-shadow: 5px 5px 0 black,
+		-5px -5px 0 black,
+		-5px 5px 0 black,
+		5px -5px 0 black;
+	transition: 500ms ease-in-out;
+}
+
+#backbtn:hover {
+	box-shadow: 20px 5px 0 black, -20px -5px 0 black;
+}
+
+#backbtn:focus {
+	outline: none;
+}
+
+  
+
+  
