@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from "react";
 import "../Char/Char.css";
 import KeyPress from "../hooks/keyPress";
+import LocalStorage from "../hooks/localStorage";
 
 const keySetting={
   SPACE_KEY:32
 }
 function Char() {
   const [char, setChar] = useState('');
-  const [speed, setSpeed] = useState(false);
+  
  
   function handleChange(e) {
     setChar(e.target.value);
-    console.log("tıkladnı");
+    console.log("tıklandı");
   }
 //   // const [direction, setDirection] = useState('up');
 
@@ -22,6 +23,7 @@ function Char() {
     "ArrowRight",
   ]);
   
+  let speed=20;
   const [vertical, setVertical] = useState(0);
   const [horizontal, setHorizontal] = useState(0);
 
@@ -29,40 +31,37 @@ function Char() {
     let arrowUp = 0;
     console.log(key);
     if (key === "ArrowUp") {
-      setVertical((arrowUp) => arrowUp - 10);
+      setVertical((arrowUp) => arrowUp - speed);
       if (vertical < 1) {
         setVertical(0);
       }
     
-    
-      /* Space ile yukarı tuşuna aynı anda basılırsa hız iki katına çıkar. Bütün tuşlar için ayrı ayarlanmalı
-                     setVertical(arrowUp => arrowUp - 10)
-             */
     }
     if (key === "ArrowDown") {
-      setVertical((arrowDown) => arrowDown + 20);
+      setVertical((arrowDown) => arrowDown + speed);
       if (vertical > 430) {
         setVertical(430);
       }
     }
     if (key === "ArrowLeft") {
-      setHorizontal((arrowLeft) => arrowLeft - 20);
+      setHorizontal((arrowLeft) => arrowLeft - speed);
       if (horizontal < 1) {
         setHorizontal(1);
       }
     }
     if (key === "ArrowRight") {
-      setHorizontal((arrowRight) => arrowRight + 20);
+      setHorizontal((arrowRight) => arrowRight + speed);
       if (horizontal > 420) {
         setHorizontal(420);
       }
     }
 
     if(key.keyCode===keySetting.SPACE_KEY){
-      setVertical((arrowUp) => arrowUp -10);
+      setVertical((arrowUp) => arrowUp - speed);
       if (vertical < 1) {
         setVertical(0);
       }
+      
     }
     // if(key.keyCode===keySetting.SPACE_KEY){
     //   console.log("HELLLOOO")
@@ -100,6 +99,7 @@ function Char() {
       <p
         id={char === "Beste" ? "char1" : "char2"}
         onKeyPress={handleKey}
+        value={{setChar}}
         style={{ top: `${vertical}px`, left: `${horizontal}px` }}
       >
         {char}
