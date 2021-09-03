@@ -1,7 +1,7 @@
 ### Live Demo
 https://inspiring-hopper-a028ff.netlify.app/
 
-## Görseller
+### Görseller
 
 <img src="./img/game1.png" />
 <img src="./img/game2.png" />
