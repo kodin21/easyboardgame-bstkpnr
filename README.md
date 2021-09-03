@@ -1,6 +1,16 @@
 ### Live Demo
 https://inspiring-hopper-a028ff.netlify.app/
 
+### Görseller
+
+<img src="./img/game1.png" />
+<img src="./img/game2.png" />
+<img src="./img/game3.png" />
+<img src="./img/game4.png" />
+
+
+
+
 ## HAFTA 4 - ÖDEV
 
 # React mix example
